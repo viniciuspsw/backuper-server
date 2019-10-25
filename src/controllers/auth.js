@@ -32,6 +32,32 @@ const auth = async (req, res) => {
   }
 };
 
+const register = async (req, res) => {
+  try {
+    const verifyUser = await userModel
+      .findOne({ email: req.body.email });
+
+    if (verifyUser) {
+      return res
+        .status(401)
+        .json({ error: 'User already exists' });
+    }
+
+    const user = await userModel.create(req.body);
+
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
+    const userData = { ...user._doc };
+    delete userData.password;
+
+    return res.json({ user: userData, token });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ error });
+  }
+};
+
 module.exports = {
   auth,
+  register,
 };

@@ -3,10 +3,11 @@ const projectsController = require('../controllers/projects');
 const backupsController = require('../controllers/backups');
 const authMiddleware = require('../middlewares/auth');
 
-router.use(authMiddleware);
+// router.use(authMiddleware);
 
 router.get('/', projectsController.list);
 router.post('/', projectsController.store);
+router.get('/:id', projectsController.show);
 router.patch('/:id', projectsController.update);
 router.delete('/:id', projectsController.destroy);
 
