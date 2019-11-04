@@ -28,20 +28,11 @@ schema.pre('save', function(next) {
     return next();
   }
 
-  bcrypt.genSalt(10, function(err, salt) {
-    if (err) {
-      return next(err);
-    }
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(user.password, salt);
+  user.password = hash;
 
-    bcrypt.hash(user.password, salt, function(err, hash) {
-      if (err) {
-        return next(err)
-      };
-
-      user.password = hash;
-      next();
-    });
-  });
+  next();
 });
 
 schema.methods.checkPassword = async function(hash) {
