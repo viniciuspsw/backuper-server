@@ -1,9 +1,12 @@
 const backuper = require('s3-mongo-backup');
+const dotenv = require('dotenv');
 const simpleNodeLoggger = require('simple-node-logger');
 const projectModel = require('../models/project');
 const backupModel = require('../models/backup');
 const loggerConfig = require('../config/logger');
 const logger = simpleNodeLoggger.createRollingFileLogger(loggerConfig);
+
+dotenv.config();
 
 const doBackups = async () => {
   try {
