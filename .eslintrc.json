@@ -4,9 +4,7 @@
     "browser": true,
     "es6": true
   },
-  "extends": [
-    "airbnb"
-  ],
+  "extends": ["airbnb"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -15,10 +13,12 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-  ],
+  "plugins": [],
   "rules": {
     "global-require": "off",
-    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
+    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
+    "no-restricted-syntax": "off",
+    "no-await-in-loop": "off",
+    "no-underscore-dangle": "off"
   }
 }

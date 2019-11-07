@@ -8,6 +8,8 @@ const backups = () => {
   });
 };
 
+backup.doBackups();
+
 module.exports = {
   backups,
 };

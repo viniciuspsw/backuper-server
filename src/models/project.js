@@ -21,7 +21,7 @@ const schema = new mongoose.Schema({
     type: String,
     enum: ['active', 'inactive'],
     default: 'active',
-  }
+  },
 }, {
   timestamps: true,
 });

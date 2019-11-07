@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
 const dotenv = require('dotenv');
 const database = require('./database');
 const corsConfig = require('./config/cors');
@@ -15,7 +14,6 @@ dotenv.config();
 app.use(cors(corsConfig));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(methodOverride());
 app.use('/api', routes);
 
 database.connect();

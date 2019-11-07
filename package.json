@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
     "nodemon": "^1.19.2"
   },
   "dependencies": {
@@ -21,10 +25,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "eslint": "^6.4.0",
-    "eslint-config-airbnb": "^18.0.1",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "method-override": "^3.0.0",
     "mongoose": "^5.7.1",
     "node-cron": "^2.0.3",
     "s3-mongo-backup": "git+https://github.com/viniciuspsw/s3-mongo-backup.git",

@@ -21,7 +21,7 @@ const schema = new mongoose.Schema({
   timestamps: true,
 });
 
-schema.pre('save', function(next) {
+schema.pre('save', function (next) {
   const user = this;
 
   if (!user.isModified('password')) {
@@ -35,7 +35,7 @@ schema.pre('save', function(next) {
   next();
 });
 
-schema.methods.checkPassword = async function(hash) {
+schema.methods.checkPassword = async function (hash) {
   return bcrypt.compare(hash, this.password);
 };
 
